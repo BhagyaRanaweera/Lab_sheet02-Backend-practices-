@@ -45,4 +45,13 @@ public class StudentController {
         studentService.deleteStudent(id);
         return new ResponseEntity<String>("Student deleted Successfully.",HttpStatus.OK);
     }
+    @GetMapping("/yearOfEnrollment/{yearOfEnrollment}")
+    public ResponseEntity<List<Student>>
+    getEmployeeByFirstName(@PathVariable("yearOfEnrollment") Integer yearOfEnrollment) {
+     List<Student> student = studentService.getStudentByyearOfEnrollment(yearOfEnrollment);
+     return new ResponseEntity<>(student, HttpStatus.OK);
+    }
+    
+    
+    
 }
