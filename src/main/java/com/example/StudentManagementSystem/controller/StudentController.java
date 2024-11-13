@@ -53,4 +53,8 @@ getEmployeeByFirstName(@PathVariable("yearOfEnrollment") Integer yearOfEnrollmen
  List<Student> student = studentService.getStudentByyearOfEnrollment(yearOfEnrollment);
  return new ResponseEntity<>(student, HttpStatus.OK);
 }
+@GetMapping("/{studentId}/department")
+    public String getDepartmentByStudentId(@PathVariable Long studentId) {
+        return studentService.getDepartmentByStudentId(studentId);
+    }
 }

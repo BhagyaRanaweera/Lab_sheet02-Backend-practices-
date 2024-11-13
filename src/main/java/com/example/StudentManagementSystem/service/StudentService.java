@@ -9,4 +9,6 @@ public interface StudentService {
     void deleteStudent(long id);
     
  List<Student> getStudentByyearOfEnrollment(Integer yearOfEnrollment);
+
+String getDepartmentByStudentId(Long studentId); 
 }
