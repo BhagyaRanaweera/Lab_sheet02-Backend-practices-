@@ -1,5 +1,6 @@
 package com.example.StudentManagementSystem.controller;
 import com.example.StudentManagementSystem.model.Student;
+import com.example.StudentManagementSystem.repository.StudentRepository;
 import com.example.StudentManagementSystem.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -44,5 +45,12 @@ public class StudentController {
         //delete employee from db
         studentService.deleteStudent(id);
         return new ResponseEntity<String>("Student deleted Successfully.",HttpStatus.OK);
+    }
+    @Autowired
+    private StudentRepository studentRepository;
+
+    @GetMapping("/enrolled/{year}")
+    public List<Student> getStudentsByYearOfEnrollment(@PathVariable int year) {
+        return studentRepository.findByYearOfEnrollment(year);
     }
 }
