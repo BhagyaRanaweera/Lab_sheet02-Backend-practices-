@@ -57,4 +57,9 @@ getEmployeeByFirstName(@PathVariable("yearOfEnrollment") Integer yearOfEnrollmen
     public String getDepartmentByStudentId(@PathVariable Long studentId) {
         return studentService.getDepartmentByStudentId(studentId);
     }
+    @DeleteMapping("/enrollment-year/{yearOfEnrollment}")
+    public ResponseEntity<String> deleteStudentsByYearOfEnrollment(@PathVariable Integer yearOfEnrollment) {
+        studentService.deleteStudentsByYearOfEnrollment(yearOfEnrollment);
+        return ResponseEntity.ok("Students enrolled in the year " + yearOfEnrollment + " have been deleted.");
+    }
 }

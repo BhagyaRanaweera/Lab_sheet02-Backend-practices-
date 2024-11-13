@@ -65,5 +65,8 @@ public class StudentServiceImpl implements StudentService {
  public String getDepartmentByStudentId(Long studentId) {
      return studentRepsitory.findDepartmentNameByStudentId(studentId);
  }
-
+ @Override
+ public void deleteStudentsByYearOfEnrollment(Integer yearOfEnrollment) {
+     studentRepsitory.deleteByYearOfEnrollment(yearOfEnrollment);
+ }
 }
